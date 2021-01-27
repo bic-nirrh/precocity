@@ -43,7 +43,7 @@ else
 	$limit=$_SESSION["limit"];
 	if($limit==0)
 	{
-	$limit=10;
+	$limit=44;
 	}
 }
 if(isset($_REQUEST['char']))
@@ -132,19 +132,7 @@ $sep=$_REQUEST["page"];
                 <?php } else echo "Query term: ".$qry;?>
               </strong></div></td>
     <td width="32%">
-    <form id="form4e" name="form4e" method="post" action="gene.php">
-      <div align="right">Show
-<select name="limit" id="limit">
-        
-          <option value="10">10</option>
-          <option value="<?php echo $mumm; ?>">All</option>
-        </select>
-         <input type="hidden" name="limitt" value="<?php echo $limitt; ?>" />
-          <input type="hidden" name="qry" value="<?php echo $qry; ?>" />
-           <input type="hidden" name="char" value="<?php echo $char; ?>" />
-         <input name="shoh" type="submit" value="GO" />
-      </div>
-    </form>
+    
     </td>
   </tr>
   
@@ -166,28 +154,7 @@ $sep=$_REQUEST["page"];
 		?>
         <table width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
           <tr>
-            <td width="70%" height="38"><strong><?php $y1=$y; if($y1 > $mumm){$y1=$mumm;} if ($mumm==0) echo "No result "; else echo ($x+1)." to ".$y1." of ".$mumm." Genes"; ?></strong></td><td width="30%"><table width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
-          <tr>
-            <td><td width="25%"><form id="form1" name="form1" method="post" action="gene.php?char=<?php echo $char; ?>&qry=<?php echo $qry; ?>&limitt=<?php $lm=str_replace(' ', '%20', $limitt); echo $lm; ?>">
-            <input name="s1" type="submit" <?php if($sep==0){ ?>disabled="disabled" <?php } ?> value="&lt;&lt;" />
-            
-            </form></td>
-            <td width="25%"><form id="form2" name="form2" method="post" action="gene.php?page=<?php echo $sep-1; ?>&char=<?php echo $char; ?>&qry=<?php echo $qry; ?>&limitt=<?php $lm=str_replace(' ', '%20', $limitt); echo $lm; ?>">
-              <input type="submit"  <?php if($sep==0){ ?>disabled="disabled" <?php } ?> name="button" id="button" value="<"/>
-            </form></td>
-            <td width="25%"><form id="form3" name="form2" method="post" action="gene.php?page=<?php echo $sep+1; ?>&char=<?php echo $char; ?>&qry=<?php echo $qry; ?>&limitt=<?php $lm=str_replace(' ', '%20', $limitt); echo $lm; ?>">
-              <input type="submit" name="button" <?php if($y>=$mumm){ ?>disabled="disabled" <?php } ?> id="button" value=">" />
-            </form></td>
-            <td width="25%"><form id="form4" name="form2" method="post" action="gene.php?page=<?php $mumm1=$mumm-($mumm%10);
-			if(($mumm%10) ==0)
-			{ echo ($mumm1/10)-1; }
-			else{
-			echo $mumm1/10; } ?>&char=<?php echo $char; ?>&qry=<?php echo $qry; ?>&limitt=<?php $lm=str_replace(' ', '%20', $limitt); echo $lm; ?>">
-              <input type="submit" name="button" <?php if($y>=$mumm){ ?>disabled="disabled" <?php } ?> id="button" value=">>" />
-            </form></td>
-            </tr>
-        </table>
-            </td></tr></table>
+            <td width="70%" height="38"><strong><?php $y1=$y; if($y1 > $mumm){$y1=$mumm;} if ($mumm==0) echo "No result "; else echo ($x+1)." to ".$y1." of ".$mumm." Genes"; ?></strong></td><td width="30%">&nbsp;</td></tr></table>
 		
         <form action="download.php" method="post" name="myForm" id="myForm" onSubmit="return validate(this);">
         <table width="99%" border="0" cellspacing="0" cellpadding="4" bordercolor="#000000">
@@ -250,28 +217,7 @@ $sep=$_REQUEST["page"];
           <tr>
             <td width="70%"><form id="form7" name="form7" method="post" action="gene.php">
               <input type="submit" name="bttn" id="bttn" value="Reset Page" />
-            </form></td><td width="30%"><table width="100%" border="0" align="center" cellpadding="2" cellspacing="0">
-          <tr>
-            <td><td width="25%"><form id="form1" name="form1" method="post" action="gene.php?char=<?php echo $char; ?>&qry=<?php echo $qry; ?>&limitt=<?php $lm=str_replace(' ', '%20', $limitt); echo $lm; ?>">
-            <input name="s1" type="submit" <?php if($sep==0){ ?>disabled="disabled" <?php } ?> value="&lt;&lt;" />
-            
-            </form></td>
-            <td width="25%"><form id="form2" name="form2" method="post" action="gene.php?page=<?php echo $sep-1; ?>&char=<?php echo $char; ?>&qry=<?php echo $qry; ?>&limitt=<?php $lm=str_replace(' ', '%20', $limitt); echo $lm; ?>">
-              <input type="submit"  <?php if($sep==0){ ?>disabled="disabled" <?php } ?> name="button" id="button" value="<"/>
-            </form></td>
-            <td width="25%"><form id="form3" name="form2" method="post" action="gene.php?page=<?php echo $sep+1; ?>&char=<?php echo $char; ?>&qry=<?php echo $qry; ?>&limitt=<?php $lm=str_replace(' ', '%20', $limitt); echo $lm; ?>">
-              <input type="submit" name="button" <?php if($y>=$mumm){ ?>disabled="disabled" <?php } ?> id="button" value=">" />
-            </form></td>
-            <td width="25%"><form id="form4" name="form2" method="post" action="gene.php?page=<?php $mumm1=$mumm-($mumm%10);
-			if(($mumm%10) ==0)
-			{ echo ($mumm1/10)-1; }
-			else{
-			echo $mumm1/10; } ?>&char=<?php echo $char; ?>&qry=<?php echo $qry; ?>&limitt=<?php $lm=str_replace(' ', '%20', $limitt); echo $lm; ?>">
-              <input type="submit" name="button" <?php if($y>=$mumm){ ?>disabled="disabled" <?php } ?> id="button" value=">>" />
-            </form></td>
-            </tr>
-        </table>
-            </td></tr></table></td>
+            </form></td><td width="30%">&nbsp;</td></tr></table></td>
       </tr>
         </table>          <p>&nbsp;</p></td>
       </tr>
